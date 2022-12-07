@@ -30,4 +30,8 @@ This dataset contains the location and classification of all bike lanes in Great
 
 ### Dataset Matching
 
-The three public datasets are combined using two nearest neighbor algorithms in [geomatch.ipnyb]()
+The three public datasets are combined using two nearest neighbor algorithms in [geomatch.ipnyb](erdos_AU22_bristlecone/Dataframe_creation/geomatch.ipynb). First all bike lanes features within 0.1 miles of an aadf countint point are matched. Then all collisions in Greater London are matched to counting points. This notebook outputs two new datasets:
+1. All collisions in Greater London from 2005-2018 with an associated aadf count (if matched) and bike lanes.
+2. All aadf counting points in Greater London with associated bike lanes.
+
+
