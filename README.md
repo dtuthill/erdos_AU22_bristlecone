@@ -6,19 +6,22 @@ We built a comprehensive dataset of bike accidents and safety features in Greate
 
 ---
 
-This README covers the dataset creation, clustering analysis on shared bus and bike lanes, and initial regressive analyses.
+This README covers the dataset creation, clustering analysis on shared bus and bike lanes, and initial regressive and classification analyses.
 
 ## Table of contents
 1. [Dataset Creation](#dataset)
-2. [Clustering](#paragraph1)
-    1. [Sub paragraph](#subparagraph1)
-3. [Regression](#paragraph2)
+    1. [Public Dataset Sourcing](#sourcing)
+    2. [Dataset Matching](#matching)
+2. [Clustering](#clustering)
+3. [Additional Analyses](#additional)
+    1. [Regression](#regression)
+    2. [Classification](#classification)
 
 ## Dataset Creation <a name="dataset"></a>
 
-### Public Dataset Sourcing
+### Public Dataset Sourcing <a name="sourcing"></a>
 
-The dataset is created from three publically accessible datasets:
+The dataset is created from three publically accessible datasets. **Due to their large size, these datasets are not stored in this repository**:
 1. [cycling_safety_uk_gov.csv](https://zenodo.org/record/5603036#.Y49yTXbMJD9)<br/>
 This dataset contains all accidents in the United Kingdom involving bikes from 2005-2018. This is a processed version of [Road Safety Data](https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data) produced for the [CYCLANDS](https://www.nature.com/articles/s41597-022-01333-2) collection.
 
@@ -28,10 +31,20 @@ This dataset contains the traffic annual average daily flows (aadf) for most roa
 3. [cycle_lane_track.json](https://cycling.data.tfl.gov.uk/)
 This dataset contains the location and classification of all bike lanes in Greater London. More information on the dataset can be found [here](https://cycling.data.tfl.gov.uk/CyclingInfrastructure/documentation/asset_information_guide.pdf).
 
-### Dataset Matching
+### Dataset Matching <a name="matching"></a>
 
-The three public datasets are combined using two nearest neighbor algorithms in [geomatch.ipnyb](erdos_AU22_bristlecone/Dataframe_creation/geomatch.ipynb). First all bike lanes features within 0.1 miles of an aadf countint point are matched. Then all collisions in Greater London are matched to counting points. This notebook outputs two new datasets:
-1. All collisions in Greater London from 2005-2018 with an associated aadf count (if matched) and bike lanes.
-2. All aadf counting points in Greater London with associated bike lanes.
+The three public datasets are geographically matched using two nearest neighbor algorithms in [geomatch.ipnyb](erdos_AU22_bristlecone/Dataframe_creation/geomatch.ipynb). First all bike lanes features within 0.1 miles of an aadf countint point are matched. Then all collisions in Greater London are matched to counting points using roadnames as a threshold to confirm matches. This notebook outputs two new datasets:
+1. combined_collisions_v3.csv: All collisions in Greater London from 2005-2018 with an associated aadf count (if matched) and bike lanes.
+2. aadf_features_london_colyears.csv: All aadf counting points in Greater London with associated bike lanes.
 
+Using these two new datasets, a final dataset which lists all aadf counter points in Greater London, their associated bike lanes, and the number of collisions and severity information at each counter point from 2005-2018 is created in [BuildRoadDataframe_v3p1.ipynb](erdos_AU22_bristlecone/Dataframe_creation/BuildRoadDataframe_v3p1.ipynb). This dataset is output as df_road_v3p1_zeros.csv.
+
+Other datasets found in /Dataframe_creation are:
+1. aadf_year_meta.csv: Meta data for dft_traffic_counts_aadf.csv
+2. longs_lats.npz: All features extracted from cycle_lane_track.json stored as .npz for ease of access
+
+## Clustering <a name="clustering"></a>
+k-means clustering analysis is performed in [kmeans_SharedBusLanes.ipynb](erdos_AU22_bristlecone/Analysis/Clustering/kmeans_SharedBusLanes.ipynb). This notebook shows the clustering implementation, k selection, and example application of the results studying safety of shared bus/bike lanes.
+
+## Additional Analyses <a name="additional"></a>
 
