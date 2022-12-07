@@ -33,11 +33,11 @@ This dataset contains the location and classification of all bike lanes in Great
 
 ### Dataset Matching <a name="matching"></a>
 
-The three public datasets are geographically matched using two nearest neighbor algorithms in [geomatch.ipnyb](erdos_AU22_bristlecone/Dataframe_creation/geomatch.ipynb). First all bike lanes features within 0.1 miles of an aadf countint point are matched. Then all collisions in Greater London are matched to counting points using roadnames as a threshold to confirm matches. This notebook outputs two new datasets:
+The three public datasets are geographically matched using two nearest neighbor algorithms in [geomatch.ipnyb](erdos_AU22_bristlecone/Dataframe_creation/geomatch.ipynb). First all bike lanes features within 0.1 miles of an aadf countint point are matched. Then all collisions in Greater London are matched to counting points. Road names are used as a threshold for accident matching, checking aadf counter points nearest neighbors by increasing distance from the accident until a successful match is found. This notebook outputs two new datasets:
 1. combined_collisions_v3.csv: All collisions in Greater London from 2005-2018 with an associated aadf count (if matched) and bike lanes.
 2. aadf_features_london_colyears.csv: All aadf counting points in Greater London with associated bike lanes.
 
-Using these two new datasets, a final dataset which lists all aadf counter points in Greater London, their associated bike lanes, and the number of collisions and severity information at each counter point from 2005-2018 is created in [BuildRoadDataframe_v3p1.ipynb](erdos_AU22_bristlecone/Dataframe_creation/BuildRoadDataframe_v3p1.ipynb). This dataset is output as df_road_v3p1_zeros.csv.
+Using these two new datasets, accident counts at each aadf counter point are aggregrated, and a final dataset which lists all aadf counter points in Greater London, their associated bike lanes, and the number of collisions and severity information at each counter point from 2005-2018 is created in [BuildRoadDataframe_v3p1.ipynb](erdos_AU22_bristlecone/Dataframe_creation/BuildRoadDataframe_v3p1.ipynb). This dataset is output as df_road_v3p1_zeros.csv.
 
 Other datasets found in /Dataframe_creation are:
 1. aadf_year_meta.csv: Meta data for dft_traffic_counts_aadf.csv
