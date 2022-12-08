@@ -44,7 +44,7 @@ Other datasets found in /Dataframe_creation are:
 2. longs_lats.npz: All features extracted from cycle_lane_track.json stored as .npz for ease of access
 
 ## Clustering <a name="clustering"></a>
-k-means clustering analysis is performed in [kmeans_SharedBusLanes.ipynb](erdos_AU22_bristlecone/Analysis/Clustering/kmeans_SharedBusLanes.ipynb). This notebook shows the clustering implementation, k selection, and example application of the results studying safety of shared bus/bike lanes.
+k-means clustering analysis is performed in [kmeans_SharedBusLanes.ipynb](erdos_AU22_bristlecone/Analysis/Clustering/kmeans_SharedBusLanes.ipynb). This notebook shows the clustering implementation, k selection, interpretation of resulting clusters, and example application using the "urban-bikeways" cluster to study the safety of shared bus/bike lanes in Greater London.
 
 ## Additional Analyses <a name="additional"></a>
 
