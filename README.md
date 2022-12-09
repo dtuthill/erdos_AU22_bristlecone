@@ -1,5 +1,5 @@
 # An Analysis of Bike Safety in London
-by AJ Bishop, Ben Cote, Jacob Freyermuth, Greg McCracken, and Daniel Tuthill (Bristlecone Team)
+by AJ Bishop, Ben Cote, Jacob Freyermuth, Greg McCracken, and Daniel Tuthill (Bristlecone Team)<br/>
 This project was completed for the Erdos Institute Data Science Bootcamp, Fall 2022.
 
 We built a comprehensive dataset of bike accidents and safety features in Greater London, United Kingdom. We then used this dataset to determine whether shared bus and bike lanes were as safe as segregrated bus lanes.
@@ -38,7 +38,7 @@ The three public datasets are geographically matched using two nearest neighbor 
 1. [combined_collisions_v3.csv](/Dataframe_creation/Dataframes/combined_collisions_v3.csv): All collisions in Greater London from 2005-2018 with an associated aadf count (if matched) and bike lanes. This dataset is also stored on Kaggle [here](https://www.kaggle.com/datasets/dtuthill/london-cycling-safety).
 2. [aadf_features_london_colyears.csv](/Dataframe_creation/Dataframes/aadf_features_london_colyears.csv): All aadf counting points in Greater London with associated bike lanes.
 
-Using these two new datasets, accident counts at each aadf counter point are aggregrated, and a final dataset which lists all aadf counter points in Greater London, their associated bike lanes, and the number of collisions and severity information at each counter point from 2005-2018 is created in [BuildRoadDataframe_v3p1.ipynb](/Dataframe_creation/BuildRoadDataframe_v3p1.ipynb). This dataset is output as [df_road_v3p1_zeros.csv](/Dataframe_creation/Dataframes/df_road_v3p1_zeros.csv).
+Using these two new datasets, accident counts at each aadf counter point are aggregated, and a final dataset which lists all aadf counter points in Greater London, their associated bike lanes, and the number of collisions and severity information at each counter point from 2005-2018 is created in [BuildRoadDataframe_v3p1.ipynb](/Dataframe_creation/BuildRoadDataframe_v3p1.ipynb). This dataset is output as [df_road_v3p1_zeros.csv](/Dataframe_creation/Dataframes/df_road_v3p1_zeros.csv).
 
 Other datasets found in /Dataframe_creation are:
 1. [aadf_year_meta.csv](/Dataframe_creation/Dataframes/aadf_year_meta.csv): Meta data for dft_traffic_counts_aadf.csv
