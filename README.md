@@ -24,12 +24,15 @@ This README covers the dataset creation, clustering analysis on shared bus and b
 The dataset is created from three publically accessible datasets. **Due to their large size, these datasets are not stored in this repository**:
 1. [cycling_safety_uk_gov.csv](https://zenodo.org/record/5603036#.Y49yTXbMJD9)<br/>
 This dataset contains all accidents in the United Kingdom involving bikes from 2005-2018. This is a processed version of [Road Safety Data](https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data) produced for the [CYCLANDS](https://www.nature.com/articles/s41597-022-01333-2) collection.
+![collisions](/Dataframe_creation/Plots/collisions.png)
 
 2. [dft_traffic_counts_aadf.csv](https://roadtraffic.dft.gov.uk/downloads)<br/>
 This dataset contains the traffic annual average daily flows (aadf) for most roads in the United Kingdom from 2000-2021. More information on the dataset can be found [here](https://storage.googleapis.com/dft-statistics/road-traffic/all-traffic-data-metadata.pdf).
+![traffic_counters](/Dataframe_creation/Plots/traffic_counters.png)
 
 3. [cycle_lane_track.json](https://cycling.data.tfl.gov.uk/)
 This dataset contains the location and classification of all bike lanes in Greater London. More information on the dataset can be found [here](https://cycling.data.tfl.gov.uk/CyclingInfrastructure/documentation/asset_information_guide.pdf).
+![bike_lanes](/Dataframe_creation/Plots/bike_lanes.png)
 
 ### Dataset Matching <a name="matching"></a>
 
