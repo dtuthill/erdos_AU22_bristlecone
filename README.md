@@ -13,9 +13,7 @@ This README covers the dataset creation, clustering analysis on shared bus and b
     1. [Public Dataset Sourcing](#sourcing)
     2. [Dataset Matching](#matching)
 2. [Clustering](#clustering)
-3. [Additional Analyses](#additional)
-    1. [Regression](#regression)
-    2. [Classification](#classification)
+3. [Regression and Classification](#additional)
 
 ## Dataset Creation <a name="dataset"></a>
 
@@ -37,17 +35,17 @@ This dataset contains the location and classification of all bike lanes in Great
 ### Dataset Matching <a name="matching"></a>
 
 The three public datasets are geographically matched using two nearest neighbor algorithms in [geomatch.ipnyb](/Dataframe_creation/geomatch.ipynb). First all bike lanes features within 0.1 miles of an aadf countint point are matched. Then all collisions in Greater London are matched to counting points. Road names are used as a threshold for accident matching, checking aadf counter points nearest neighbors by increasing distance from the accident until a successful match is found. This notebook outputs two new datasets:
-1. combined_collisions_v3.csv: All collisions in Greater London from 2005-2018 with an associated aadf count (if matched) and bike lanes.
-2. aadf_features_london_colyears.csv: All aadf counting points in Greater London with associated bike lanes.
+1. [combined_collisions_v3.csv](/Dataframe_creation/Dataframes/combined_collisions_v3.csv): All collisions in Greater London from 2005-2018 with an associated aadf count (if matched) and bike lanes.
+2. [aadf_features_london_colyears.csv](/Dataframe_creation/Dataframes/aadf_features_london_colyears.csv): All aadf counting points in Greater London with associated bike lanes.
 
-Using these two new datasets, accident counts at each aadf counter point are aggregrated, and a final dataset which lists all aadf counter points in Greater London, their associated bike lanes, and the number of collisions and severity information at each counter point from 2005-2018 is created in [BuildRoadDataframe_v3p1.ipynb](/Dataframe_creation/BuildRoadDataframe_v3p1.ipynb). This dataset is output as df_road_v3p1_zeros.csv.
+Using these two new datasets, accident counts at each aadf counter point are aggregrated, and a final dataset which lists all aadf counter points in Greater London, their associated bike lanes, and the number of collisions and severity information at each counter point from 2005-2018 is created in [BuildRoadDataframe_v3p1.ipynb](/Dataframe_creation/BuildRoadDataframe_v3p1.ipynb). This dataset is output as [df_road_v3p1_zeros.csv](/Dataframe_creation/Dataframes/df_road_v3p1_zeros.csv).
 
 Other datasets found in /Dataframe_creation are:
-1. aadf_year_meta.csv: Meta data for dft_traffic_counts_aadf.csv
-2. longs_lats.npz: All features extracted from cycle_lane_track.json stored as .npz for ease of access
+1. [aadf_year_meta.csv](/Dataframe_creation/Dataframes/aadf_year_meta.csv): Meta data for dft_traffic_counts_aadf.csv
+2. [longs_lats.npz](/Dataframe_creation/Dataframes/longs_lats.npz): All features extracted from cycle_lane_track.json stored as .npz for ease of access
 
 ## Clustering <a name="clustering"></a>
 k-means clustering analysis is performed in [kmeans_SharedBusLanes.ipynb](erdos_AU22_bristlecone/Analysis/Clustering/kmeans_SharedBusLanes.ipynb). This notebook shows the clustering implementation, k selection, interpretation of resulting clusters, and example application using the "urban-bikeways" cluster to study the safety of shared bus/bike lanes in Greater London.
 
 ## Additional Analyses <a name="additional"></a>
-
+Preliminary implementations of regression and classification are shown in [PreliminaryRegression.ipynb](/Analysis/Regression/PreliminaryRegression.ipynb) and [PreliminaryClassification.ipynb](/Analysis/Classification/PreliminaryClassification.ipynb). For both scaling, feature selection, and baseline models are implemented. For regression, a strong correlation between bike traffic and the number of accidents arises as expected and dominates the importance of other variables. For classification, most accidents are not serious accidents. Therefore, baselines classification models are biased towards low severity classifications. More complex analysis is needed to improve models but these are meant to be example baseline models for using the above datasets. 
